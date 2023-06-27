@@ -17,7 +17,7 @@ class Splash extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(14*fem, 20*fem, 14*fem, 263*fem),
         width: double.infinity,
         decoration: BoxDecoration (
-          borderRadius: BorderRadius.circular(30*fem),
+          // borderRadius: BorderRadius.circular(30*fem),
           gradient: LinearGradient (
             begin: Alignment(0.928, -1.09),
             end: Alignment(-1.079, 1.072),
@@ -37,59 +37,59 @@ class Splash extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    // timelightfh7 (I3:66;2:66)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 270*fem, 0*fem),
-                    width: 54*fem,
-                    height: 21*fem,
-                    child: Image.asset(
-                      'assets/images/time-light.png',
-                      width: 54*fem,
-                      height: 21*fem,
-                    ),
-                  ),
-                  Container(
-                    // statusiconsVRF (I3:66;2:42)
-                    margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 0*fem, 4*fem),
-                    height: double.infinity,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          // networksignallightybK (I3:66;2:43)
-                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 6.5*fem, 0*fem),
-                          width: 16.5*fem,
-                          height: 10*fem,
-                          child: Image.asset(
-                            'assets/images/network-signal-light-nn1.png',
-                            width: 16.5*fem,
-                            height: 10*fem,
-                          ),
-                        ),
-                        Container(
-                          // wifisignallight23o (I3:66;2:52)
-                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 4.75*fem, 0*fem),
-                          width: 14.25*fem,
-                          height: 10*fem,
-                          child: Image.asset(
-                            'assets/images/wifi-signal-light.png',
-                            width: 14.25*fem,
-                            height: 10*fem,
-                          ),
-                        ),
-                        Container(
-                          // batterylightEff (I3:66;2:56)
-                          width: 25*fem,
-                          height: 12*fem,
-                          child: Image.asset(
-                            'assets/images/battery-light.png',
-                            width: 25*fem,
-                            height: 12*fem,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   // timelightfh7 (I3:66;2:66)
+                  //   margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 270*fem, 0*fem),
+                  //   width: 54*fem,
+                  //   height: 21*fem,
+                  //   child: Image.asset(
+                  //     'assets/images/time-light.png',
+                  //     width: 54*fem,
+                  //     height: 21*fem,
+                  //   ),
+                  // ),
+                  // Container(
+                  //   // statusiconsVRF (I3:66;2:42)
+                  //   margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 0*fem, 4*fem),
+                  //   height: double.infinity,
+                  //   child: Row(
+                  //     crossAxisAlignment: CrossAxisAlignment.center,
+                  //     children: [
+                  //       Container(
+                  //         // networksignallightybK (I3:66;2:43)
+                  //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 6.5*fem, 0*fem),
+                  //         width: 16.5*fem,
+                  //         height: 10*fem,
+                  //         child: Image.asset(
+                  //           'assets/images/network-signal-light-nn1.png',
+                  //           width: 16.5*fem,
+                  //           height: 10*fem,
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         // wifisignallight23o (I3:66;2:52)
+                  //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 4.75*fem, 0*fem),
+                  //         width: 14.25*fem,
+                  //         height: 10*fem,
+                  //         child: Image.asset(
+                  //           'assets/images/wifi-signal-light.png',
+                  //           width: 14.25*fem,
+                  //           height: 10*fem,
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         // batterylightEff (I3:66;2:56)
+                  //         width: 25*fem,
+                  //         height: 12*fem,
+                  //         child: Image.asset(
+                  //           'assets/images/battery-light.png',
+                  //           width: 25*fem,
+                  //           height: 12*fem,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),

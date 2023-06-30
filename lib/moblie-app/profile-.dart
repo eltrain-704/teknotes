@@ -136,7 +136,7 @@ class Scene extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15.8275871277*fem),
                       child: Image.asset(
-                        'assets/images/rectangle-24-8Kw.png',
+                        'assets/images/user.png',
                         fit: BoxFit.cover,
                       ),
                     ),

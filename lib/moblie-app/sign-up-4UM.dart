@@ -279,7 +279,7 @@ class Scene extends StatelessWidget {
                                     width: 28*fem,
                                     height: 28*fem,
                                     child: Image.asset(
-                                      'assets/images/image-5-tGm.png',
+                                      'assets/images/google.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -332,7 +332,7 @@ class Scene extends StatelessWidget {
                                     width: 28*fem,
                                     height: 28*fem,
                                     child: Image.asset(
-                                      'assets/images/image-5.png',
+                                      'assets/images/facebook.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -385,7 +385,7 @@ class Scene extends StatelessWidget {
                                     width: 20*fem,
                                     height: 20*fem,
                                     child: Image.asset(
-                                      'assets/images/image-5-BC9.png',
+                                      'assets/images/apple_store.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),

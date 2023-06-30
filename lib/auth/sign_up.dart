@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teknotes/auth/create_account.dart';
+import 'package:teknotes/auth/sign_in.dart';
 import '../constants.dart';
 
 class SignUP extends StatefulWidget {
@@ -17,6 +19,7 @@ class _SignUPState extends State<SignUP> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Spacer(flex: 2,),
           SecondaryText(
             textAlign: TextAlign.center,
             text:
@@ -25,12 +28,22 @@ class _SignUPState extends State<SignUP> {
             fontWeight: FontWeight.w500,
           ),
           Spacer(),
-          PrimaryText(
-            text: 'By Proceeding You Agree To Our\n$conditionUrl',
+          RichText(
+            textAlign: TextAlign.center,
+              text: TextSpan(
+                children: [
+                  TextSpan(text: 'By Proceeding You Agree To Our\n', style: TextStyle(fontSize: 12, color: Colors.black)),
+                  TextSpan(text: '$conditionUrl', style: TextStyle(fontSize: 12, color: AppColor.primaryColor))
+
+                ]
+              )
           ),
           Spacer(),
           AppButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateAccount()));
+
+            },
             child: Text(
               ' Create Account',
               style: TextStyle(color: Colors.white),
@@ -38,7 +51,9 @@ class _SignUPState extends State<SignUP> {
           ),
           Spacer(),
           AppButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignIn()));
+            },
             backgroundColor: Colors.transparent,
             borderWidth: 1.0,
             borderColor: Colors.black54,

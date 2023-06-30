@@ -207,7 +207,7 @@ class AppBackground extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(
             top: 40,
-            bottom: 25,
+            bottom: 35,
             left: 15,
             right: 15,
           ),

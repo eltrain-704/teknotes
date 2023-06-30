@@ -15,17 +15,17 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  // void initState() {
-  //   decideNav();
-  //   super.initState();
-  // }
-  //
-  // void decideNav() {
-  //   Future.delayed(
-  //     const Duration(seconds: 3),
-  //         () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignUP()))
-  //   );
-  // }
+  void initState() {
+    decideNav();
+    super.initState();
+  }
+
+  void decideNav() {
+    Future.delayed(
+      const Duration(seconds: 3),
+          () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignUP()))
+    );
+  }
 
 
   @override
@@ -49,7 +49,7 @@ class _SplashState extends State<Splash> {
               // width: 400*fem,
               // height: 400*fem,
               child: Image.asset(
-                'assets/images/logofinalfile-01-removebg-preview-1-pZ3.png',
+                'assets/images/teknotes_logo.png',
                 fit: BoxFit.cover,
               ),
             ),

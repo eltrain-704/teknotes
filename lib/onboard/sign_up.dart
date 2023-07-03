@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teknotes/auth/create_account.dart';
 import 'package:teknotes/auth/sign_in.dart';
-import '../constants.dart';
+import '../utils/constants.dart';
 
 class SignUP extends StatefulWidget {
   const SignUP({Key? key}) : super(key: key);
@@ -19,7 +19,9 @@ class _SignUPState extends State<SignUP> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Spacer(flex: 2,),
+          const Spacer(
+            flex: 2,
+          ),
           SecondaryText(
             textAlign: TextAlign.center,
             text:
@@ -27,32 +29,34 @@ class _SignUPState extends State<SignUP> {
             size: 25,
             fontWeight: FontWeight.w500,
           ),
-          Spacer(),
+          const Spacer(),
           RichText(
-            textAlign: TextAlign.center,
-              text: TextSpan(
-                children: [
-                  TextSpan(text: 'By Proceeding You Agree To Our\n', style: TextStyle(fontSize: 12, color: Colors.black)),
-                  TextSpan(text: '$conditionUrl', style: TextStyle(fontSize: 12, color: AppColor.primaryColor))
-
-                ]
-              )
-          ),
-          Spacer(),
+              textAlign: TextAlign.center,
+              text: TextSpan(children: [
+                const TextSpan(
+                    text: 'By Proceeding You Agree To Our\n',
+                    style: TextStyle(fontSize: 12, color: Colors.black)),
+                TextSpan(
+                    text: conditionUrl,
+                    style:
+                        const TextStyle(fontSize: 12, color: AppColor.primaryColor))
+              ])),
+          const Spacer(),
           AppButton(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateAccount()));
-
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CreateAccount()));
             },
-            child: Text(
+            child: const Text(
               ' Create Account',
               style: TextStyle(color: Colors.white),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           AppButton(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignIn()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const SignIn()));
             },
             backgroundColor: Colors.transparent,
             borderWidth: 1.0,
@@ -62,26 +66,25 @@ class _SignUPState extends State<SignUP> {
               color: Colors.black,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Divider(
+              const Divider(
                 thickness: 10,
-
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 7),
+                padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: PrimaryText(
                   text: 'Or',
                 ),
               ),
-              Divider(
+              const Divider(
                 thickness: 10,
               )
             ],
           ),
-          Spacer(),
+          const Spacer(),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -90,7 +93,7 @@ class _SignUPState extends State<SignUP> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: 30,
                   width: 40,
                   child: Image.asset(
@@ -98,7 +101,7 @@ class _SignUPState extends State<SignUP> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 PrimaryText(
@@ -108,7 +111,7 @@ class _SignUPState extends State<SignUP> {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -117,7 +120,7 @@ class _SignUPState extends State<SignUP> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: 30,
                   width: 40,
                   child: Image.asset(
@@ -125,7 +128,7 @@ class _SignUPState extends State<SignUP> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 PrimaryText(
@@ -135,7 +138,7 @@ class _SignUPState extends State<SignUP> {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -144,7 +147,7 @@ class _SignUPState extends State<SignUP> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: 30,
                   width: 40,
                   child: Image.asset(
@@ -152,7 +155,7 @@ class _SignUPState extends State<SignUP> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 PrimaryText(

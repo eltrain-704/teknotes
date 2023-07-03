@@ -566,7 +566,7 @@ class Scene11 extends StatelessWidget {
                                                         width: 22.66*fem,
                                                         height: 16.62*fem,
                                                         child: Image.asset(
-                                                          'assets/images/vector-8qT.png',
+                                                          'assets/images/tick.png',
                                                           width: 22.66*fem,
                                                           height: 16.62*fem,
                                                         ),
@@ -623,7 +623,7 @@ class Scene11 extends StatelessWidget {
                                                     width: 6*fem,
                                                     height: 23.14*fem,
                                                     child: Image.asset(
-                                                      'assets/images/vector-5jK.png',
+                                                      'assets/images/menu.png',
                                                       width: 6*fem,
                                                       height: 23.14*fem,
                                                     ),

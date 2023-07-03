@@ -239,7 +239,7 @@ class Scene8 extends StatelessWidget {
                     width: 24*fem,
                     height: 24*fem,
                     child: Image.asset(
-                      'assets/images/vector-Bbb.png',
+                      'assets/images/underline.png',
                       width: 24*fem,
                       height: 24*fem,
                     ),
@@ -252,7 +252,7 @@ class Scene8 extends StatelessWidget {
                     width: 22*fem,
                     height: 26*fem,
                     child: Image.asset(
-                      'assets/images/vector-Brd.png',
+                      'assets/images/alphabet.png',
                       width: 22*fem,
                       height: 26*fem,
                     ),
@@ -266,7 +266,7 @@ class Scene8 extends StatelessWidget {
                     width: 24*fem,
                     height: 24*fem,
                     child: Image.asset(
-                      'assets/images/vector-FMP.png',
+                      'assets/images/strike.png',
                       width: 24*fem,
                       height: 24*fem,
                     ),

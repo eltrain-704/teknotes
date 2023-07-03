@@ -201,7 +201,7 @@ class Scene6 extends StatelessWidget {
                   width: 80*fem,
                   height: 80*fem,
                   child: Image.asset(
-                    'assets/images/frame-56305-GbP.png',
+                    'assets/images/create_note.png',
                     width: 80*fem,
                     height: 80*fem,
                   ),

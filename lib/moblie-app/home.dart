@@ -538,7 +538,7 @@ class Scene14 extends StatelessWidget {
                                       width: 196*fem,
                                       height: 196*fem,
                                       child: Image.asset(
-                                        'assets/images/image-removebg-preview-8-1.png',
+                                        'assets/images/image-5.png',
                                         fit: BoxFit.cover,
                                       ),
                                     ),

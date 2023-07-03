@@ -1,43 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/src/material/colors.dart';
 
+
+//Teknotes default app button
 class AppButton extends StatelessWidget {
   final GestureTapCallback onTap;
   final Widget child;
   final Color? backgroundColor;
    final Color borderColor;
    final double borderWidth;
-
-   AppButton({Key? key,
+   const AppButton({Key? key,
      required this.onTap,
      required this.child,
      this.backgroundColor,
      this.borderColor = Colors.transparent,
      this.borderWidth = 0.0,
-
-
    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ButtonStyle buttonStyle = FilledButton.styleFrom(
-        minimumSize: Size(double.infinity,60),
-        backgroundColor: backgroundColor != null? Colors.transparent : AppColor.secondaryColor,
-        surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-          side: BorderSide(
-            color: borderColor,
-            width: borderWidth,
-          ),
-        )
-    );
     return FilledButton(
       onPressed: onTap,
-      style: buttonStyle,
+      style: FilledButton.styleFrom(
+          minimumSize: const Size(double.infinity,60),
+          backgroundColor: backgroundColor != null? Colors.transparent : AppColor.secondaryColor,
+          surfaceTintColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+            side: BorderSide(
+              color: borderColor,
+              width: borderWidth,
+            ),
+          )
+      ),
       child: child,
-      // Text(' Create Account', style: TextStyle(color: Colors.white),),
     );
   }
 }
@@ -46,7 +42,7 @@ class AppButton extends StatelessWidget {
 
 
 
-
+//Teknotes Normal Text
 class PrimaryText extends StatelessWidget {
   final Color? color;
   final String text;
@@ -54,7 +50,6 @@ class PrimaryText extends StatelessWidget {
   TextOverflow overflow;
   FontWeight? fontWeight;
   TextAlign? textAlign;
-
   PrimaryText(
       {Key? key,
         this.color = Colors.black,
@@ -63,7 +58,6 @@ class PrimaryText extends StatelessWidget {
         this.size,
         this.fontWeight = FontWeight.normal,
         this.textAlign,
-
       })
       : super(key: key);
 
@@ -83,6 +77,9 @@ class PrimaryText extends StatelessWidget {
 
 
 
+
+
+//Teknotes linear gradient text
 class SecondaryText extends StatelessWidget {
   final Color? color;
   final String text;
@@ -104,7 +101,7 @@ class SecondaryText extends StatelessWidget {
     return ShaderMask(
       blendMode: BlendMode.srcIn,
       shaderCallback: (Rect bounds) {
-        return LinearGradient(
+        return const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0xffa800ff), Color(0xff2b62ff)])
@@ -127,25 +124,27 @@ class SecondaryText extends StatelessWidget {
 
 
 
+
+//Teknotes default textfield
 class MyTextField extends StatefulWidget {
   final  TextEditingController? controller;
-  // final String? hintText;
+  final String? hintText;
   // final String? labelText;
-  final IconData? prefixIcon;
-  final IconButton? sufixIcon;
+  final Widget? prefixIcon;
+  final Widget? sufixIcon;
   // final bool isPassword;
   final bool obcureText;
   final bool isReadOnly;
-  final Color? borderColor;
+  // final Color? borderColor;
   final TextInputType keyBoardType;
   final String? Function(String?)? validator;
   final bool enable;
 
   const MyTextField({
     Key? key,
-    this.borderColor = Colors.black,
+    // this.borderColor = Colors.black,
     this.controller,
-    // this.hintText,
+    this.hintText,
     // required this.isPassword,
     required this.obcureText,
     required this.isReadOnly,
@@ -171,19 +170,19 @@ class _MyTextFieldState extends State<MyTextField> {
       readOnly: widget.isReadOnly,
       obscureText: widget.obcureText,
       decoration: InputDecoration(
-        // hintText: widget.hintText,
-        // hintStyle: GoogleFonts.poppins(color: Colors.black, fontSize: 16,),
+        hintText: widget.hintText,
+        hintStyle: GoogleFonts.poppins(color: Colors.black, fontSize: 11,),
         // labelText: widget.labelText,
         // labelStyle: TextStyle(color: Colors.black54, fontSize: 16.sp),
-        prefixIcon: Icon(widget.prefixIcon),
+        prefixIcon: widget.prefixIcon,
         suffixIcon: widget.sufixIcon,
         // contentPadding: EdgeInsets.symmetric(vertical: 22, horizontal: 22),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
+          borderSide: const BorderSide(color: Colors.black, width: 1.0),
           borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
+          borderSide: const BorderSide(color: Colors.black, width: 1.0),
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -195,9 +194,12 @@ class _MyTextFieldState extends State<MyTextField> {
 
 
 
+
+// Teknotes app background widget
 class AppBackground extends StatelessWidget {
+  final Widget? floatingActionButton;
   final Widget body;
-  const AppBackground({Key? key, required this.body}) : super(key: key);
+  const AppBackground({Key? key, required this.body, this.floatingActionButton}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +207,7 @@ class AppBackground extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 40,
             bottom: 35,
             left: 15,
@@ -214,12 +216,15 @@ class AppBackground extends StatelessWidget {
           child: body,
         )
       ),
+      floatingActionButton: floatingActionButton,
     );
   }
 }
 
 
 
+
+//Teknotes app colour
 class AppColor{
   static const Color primaryColor = Color(0xff2b62ff);
   static const Color secondaryColor=  Color(0xff1C0E4C);

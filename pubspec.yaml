@@ -36,9 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
-  iconsax: ^0.0.8
+  #web services
   http: ^1.1.0
   shared_preferences: ^2.1.2
+
+  #state management
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -78,7 +81,7 @@ flutter:
 #    - assets/images/network-signal-light-oVF.png
 #    - assets/images/rectangle-24.png
 #    - assets/images/image-2.png
-#    - assets/images/image-removebg-preview-8-1.png
+#    - assets/images/image-5.png
 #    - assets/images/wifi-signal-light-HdP.png
 #    - assets/images/frame-56308.png
 #    - assets/images/top-meun.png
@@ -125,7 +128,7 @@ flutter:
 #    - assets/images/ellipse-2-bg-ZBj.png
 #    - assets/images/vector-Bjj.png
 #    - assets/images/ellipse-2-bg-ZrM.png
-#    - assets/images/vector-8qT.png
+#    - assets/images/tick.png
 #    - assets/images/vector-Seq.png
 #    - assets/images/wifi-signal-light-w2D.png
 #    - assets/images/vector-G6R.png
@@ -151,7 +154,7 @@ flutter:
 #    - assets/images/vector-8PF.png
 #    - assets/images/vector-sKT.png
 #    - assets/images/vector-jJV.png
-#    - assets/images/vector-5jK.png
+#    - assets/images/menu.png
 #    - assets/images/bxs-home-FTb.png
 #    - assets/images/rectangle-669.png
 #    - assets/images/settings-svgrepo-com-1-ie9.png
@@ -233,7 +236,7 @@ flutter:
 #    - assets/images/vector-aE1.png
 #    - assets/images/battery-light-mX3.png
 #    - assets/images/vector-c3o.png
-#    - assets/images/frame-56305-GbP.png
+#    - assets/images/create_note.png
 #    - assets/images/battery-light-i9j.png
 #    - assets/images/wifi-signal-light-sNd.png
 #    - assets/images/network-signal-light-ZMf.png
@@ -241,18 +244,18 @@ flutter:
 #    - assets/images/network-signal-light-bDX.png
 #    - assets/images/time-light-s65.png
 #    - assets/images/vector-18Z.png
-#    - assets/images/vector-Brd.png
+#    - assets/images/alphabet.png
 #    - assets/images/vector-mTK.png
 #    - assets/images/arrowsquareleft-rmT.png
 #    - assets/images/vector-edK.png
 #    - assets/images/vector-uSm.png
 #    - assets/images/vector-byo.png
-#    - assets/images/vector-FMP.png
+#    - assets/images/strike.png
 #    - assets/images/import-content-svgrepo-com-1.png
 #    - assets/images/time-light-4KP.png
 #    - assets/images/vector-qss.png
 #    - assets/images/battery-light-Qjw.png
-#    - assets/images/vector-Bbb.png
+#    - assets/images/underline.png
 #    - assets/images/wifi-signal-light-CMb.png
 #    - assets/images/vector-wNm.png
 #    - assets/images/battery-light-SZb.png
@@ -262,8 +265,8 @@ flutter:
 #    - assets/images/page-1.png
 #    - assets/images/arrowsquareleft-Guj.png
 #    - assets/images/vector-wBs.png
-#    - assets/images/vector-7hw.png
-#    - assets/images/vector-gv9.png
+#    - assets/images/person.png
+#    - assets/images/letter.png
 #    - assets/images/wifi-signal-light-oyX.png
 #    - assets/images/vector-kER.png
 #    - assets/images/arrowsquareleft-jPB.png

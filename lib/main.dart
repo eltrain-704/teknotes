@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:teknotes/onboard/sp.dart';
 import 'package:teknotes/utils.dart';
-import 'moblie-app/sp.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter',
+    return GetMaterialApp(
+      title: 'Teknotes',
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Splash(),
     );
   }

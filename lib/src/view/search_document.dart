@@ -43,16 +43,22 @@ class _SearchDocumentState extends State<SearchDocument> {
                 children: [
                   Row(
                     children: [
-                      Material(
-                        color: AppColor.secondaryColor,
-                        borderRadius: BorderRadius.circular(4),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_rounded,
-                            color: Colors.white,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Material(
+                          color: AppColor.secondaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                          child: Container(
+                            padding: EdgeInsets.all(3),
+                            child: const Icon(
+                              Icons.arrow_back_outlined,
+                              color: Colors.white,
+                              size: 20,
+                            ),
                           ),
                         ),
                       ),

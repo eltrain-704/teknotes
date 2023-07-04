@@ -13,16 +13,43 @@ class _FormsState extends State<Forms> {
   String formName = 'Design feedback';
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       body: Column(
         children: [
+           Align(
+            alignment: Alignment.topLeft,
+            child: GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Material(
+                color: AppColor.secondaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Container(
+                  padding: EdgeInsets.all(3),
+                  child: const Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               FilledButton(
                 onPressed: () {},
                 style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 25, horizontal: 50),
                     backgroundColor: AppColor.secondaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7))),
@@ -34,7 +61,8 @@ class _FormsState extends State<Forms> {
               FilledButton(
                 onPressed: () {},
                 style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 25, horizontal: 50),
                     backgroundColor: Colors.grey[200],
                     shape: RoundedRectangleBorder(
                         side: const BorderSide(width: 1),

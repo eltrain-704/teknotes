@@ -14,7 +14,7 @@ class _SignUPState extends State<SignUP> {
   String conditionUrl = 'Privacy and Terms';
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

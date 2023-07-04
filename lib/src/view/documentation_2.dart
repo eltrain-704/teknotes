@@ -12,21 +12,28 @@ class Documentation2 extends StatefulWidget {
 class _Documentation2State extends State<Documentation2> {
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
-            Material(
-              color: AppColor.secondaryColor,
-              borderRadius: BorderRadius.circular(4),
-              child: IconButton(
-                onPressed: () {
-                },
-                icon: const Icon(
-                  Icons.arrow_back_rounded,
-                  color: Colors.white,
+            GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Material(
+                color: AppColor.secondaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Container(
+                  padding: EdgeInsets.all(3),
+                  child: const Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                    size: 20,
+                  ),
                 ),
               ),
             ),
@@ -85,8 +92,12 @@ class _Documentation2State extends State<Documentation2> {
             ),
             GestureDetector(
               onTap: () {},
-              child: const SizedBox(
+              child:  SizedBox(
                 height: 20,
+                child: Image.asset(
+                  'assets/images/italic.png',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             GestureDetector(

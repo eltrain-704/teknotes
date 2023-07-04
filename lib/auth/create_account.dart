@@ -18,7 +18,7 @@ class _CreateAccountState extends State<CreateAccount> {
   bool isVisible = false;
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const Spacer(
           flex: 2,

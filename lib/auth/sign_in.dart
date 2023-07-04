@@ -19,7 +19,7 @@ class _SignInState extends State<SignIn> {
   bool isVisible = false;
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,8 +88,8 @@ class _SignInState extends State<SignIn> {
         const Spacer(),
         AppButton(
             onTap: () {
-               loginController.LoginWithEmail();
-              //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
+              loginController.LoginWithEmail();
+              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
 
             },
             child: PrimaryText(

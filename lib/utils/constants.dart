@@ -196,10 +196,10 @@ class _MyTextFieldState extends State<MyTextField> {
 
 
 // Teknotes app background widget
-class AppBackground extends StatelessWidget {
+class AppScaffold extends StatelessWidget {
   final Widget? floatingActionButton;
   final Widget body;
-  const AppBackground({Key? key, required this.body, this.floatingActionButton}) : super(key: key);
+  const AppScaffold({Key? key, required this.body, this.floatingActionButton}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

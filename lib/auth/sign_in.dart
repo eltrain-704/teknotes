@@ -88,8 +88,8 @@ class _SignInState extends State<SignIn> {
         const Spacer(),
         AppButton(
             onTap: () {
-              loginController.LoginWithEmail();
-              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
+              // loginController.LoginWithEmail();
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
 
             },
             child: PrimaryText(

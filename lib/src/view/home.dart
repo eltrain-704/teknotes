@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                     PrimaryText(
                       text:
                           'Lorem Ipsum dolor sirasbjkbnkasasnasn\nwiusbusuashahosh',
-                      size: 12,
+                      size: 11,
                     ),
                     const SizedBox(height: 50),
                     FilledButton(
@@ -144,7 +144,7 @@ class _HomeState extends State<Home> {
                     PrimaryText(
                       text:
                           'Lorem Ipsum dolor sirasbjkbnkasasnasn\nwiusbusuashahosh',
-                      size: 12,
+                      size: 11,
                     ),
                     const SizedBox(height: 50),
                     FilledButton(
@@ -199,7 +199,7 @@ class _HomeState extends State<Home> {
                     PrimaryText(
                       text:
                           'Lorem Ipsum dolor sirasbjkbnkasasnasn\nwiusbusuashahosh',
-                      size: 12,
+                      size: 11,
                     ),
                     const SizedBox(height: 50),
                     FilledButton(

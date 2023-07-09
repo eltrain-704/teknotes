@@ -16,38 +16,44 @@ class _Signing2State extends State<Signing2> {
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            GestureDetector(
-              onTap: (){
-                Navigator.pop(context);
-              },
-              child: Material(
-                color: AppColor.secondaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(3),
-                  child: const Icon(
-                    Icons.arrow_back_outlined,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 100,
-            ),
-            PrimaryText(
-              text: 'E-signing',
-              size: 30,
-              color: AppColor.secondaryColor,
-              fontWeight: FontWeight.w500,
-            )
-          ],
-        ),
+        Center(child: PrimaryText(
+          text: 'E-signing',
+          size: 30,
+          color: AppColor.secondaryColor,
+          fontWeight: FontWeight.w500,
+        ),),
+        // Row(
+        //   children: [
+        //     GestureDetector(
+        //       onTap: (){
+        //         Navigator.pop(context);
+        //       },
+        //       child: Material(
+        //         color: AppColor.secondaryColor,
+        //         shape: RoundedRectangleBorder(
+        //           borderRadius: BorderRadius.circular(2),
+        //         ),
+        //         child: Container(
+        //           padding: EdgeInsets.all(3),
+        //           child: const Icon(
+        //             Icons.arrow_back_outlined,
+        //             color: Colors.white,
+        //             size: 20,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     const SizedBox(
+        //       width: 100,
+        //     ),
+        //     PrimaryText(
+        //       text: 'E-signing',
+        //       size: 30,
+        //       color: AppColor.secondaryColor,
+        //       fontWeight: FontWeight.w500,
+        //     )
+        //   ],
+        // ),
         const SizedBox(
           height: 35,
         ),

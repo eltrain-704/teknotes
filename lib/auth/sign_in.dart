@@ -88,9 +88,8 @@ class _SignInState extends State<SignIn> {
         const Spacer(),
         AppButton(
             onTap: () {
-              // loginController.LoginWithEmail();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
-
+               loginController.LoginWithEmail();
+              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
             },
             child: PrimaryText(
               text: 'Log in',
@@ -104,7 +103,7 @@ class _SignInState extends State<SignIn> {
             },
             backgroundColor: Colors.white,
             borderWidth: 1.0,
-            borderColor: Colors.black,
+            borderColor: AppColor.secondaryColor,
             child: PrimaryText(
               text: 'Create Account',
               color: Colors.black,

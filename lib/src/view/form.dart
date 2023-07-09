@@ -65,7 +65,7 @@ class _FormsState extends State<Forms> {
                         vertical: 25, horizontal: 50),
                     backgroundColor: Colors.grey[200],
                     shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1),
+                        side: const BorderSide(width: 1, color: AppColor.secondaryColor),
                         borderRadius: BorderRadius.circular(7))),
                 child: PrimaryText(
                   text: 'Responses',
@@ -98,7 +98,7 @@ class _FormsState extends State<Forms> {
             height: 140,
             width: double.infinity,
             decoration: BoxDecoration(
-              border: Border.all(width: 1),
+              border: Border.all(width: 1, color: AppColor.secondaryColor),
               borderRadius: BorderRadius.circular(7),
               color: Colors.transparent,
             ),

@@ -37,8 +37,8 @@ class _ShareState extends State<Share> {
                     borderRadius: BorderRadius.circular(2),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(3),
-                    child: Icon(
+                    padding: const EdgeInsets.all(3),
+                    child: const Icon(
                       Icons.arrow_back_outlined,
                       color: Colors.white,
                       size: 20,

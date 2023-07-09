@@ -178,11 +178,11 @@ class _MyTextFieldState extends State<MyTextField> {
         suffixIcon: widget.sufixIcon,
         // contentPadding: EdgeInsets.symmetric(vertical: 22, horizontal: 22),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black, width: 1.0),
+          borderSide: const BorderSide(color: AppColor.secondaryColor , width: 1.0),
           borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black, width: 1.0),
+          borderSide: const BorderSide(color: AppColor.secondaryColor, width: 1.0),
           borderRadius: BorderRadius.circular(5),
         ),
       ),

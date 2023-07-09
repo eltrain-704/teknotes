@@ -60,7 +60,7 @@ class _SignUPState extends State<SignUP> {
             },
             backgroundColor: Colors.transparent,
             borderWidth: 1.0,
-            borderColor: Colors.black54,
+            borderColor: AppColor.secondaryColor,
             child: PrimaryText(
               text: 'Log in',
               color: Colors.black,
@@ -116,7 +116,7 @@ class _SignUPState extends State<SignUP> {
             onTap: () {},
             backgroundColor: Colors.transparent,
             borderWidth: 1.0,
-            borderColor: Colors.black54,
+            borderColor: AppColor.secondaryColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -143,7 +143,7 @@ class _SignUPState extends State<SignUP> {
             onTap: () {},
             backgroundColor: Colors.transparent,
             borderWidth: 1.0,
-            borderColor: Colors.black54,
+            borderColor: AppColor.secondaryColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

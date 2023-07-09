@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teknotes/src/view/documentation.dart';
-import 'package:teknotes/src/view/e_signing.dart';
 import 'package:teknotes/src/view/share.dart';
-import '../src/view/profile.dart';
+import '../src/view/search_document.dart';
 import 'constants.dart';
 import '../src/view/home.dart';
 
@@ -237,17 +236,22 @@ class _NameBoxState extends State<NameBox> {
                 const SizedBox(
                   width: 30,
                 ),
-                Material(
-                  color: AppColor.secondaryColor,
-                  borderRadius: BorderRadius.circular(5),
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.close_rounded,
-                      color: Colors.white,
-                      size: 20,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Material(
+                    color: AppColor.secondaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.all(3),
+                      child: const Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -294,7 +298,7 @@ class _NameBoxState extends State<NameBox> {
                     minimumSize: (const Size(197, 60)),
                     backgroundColor: Colors.grey[200],
                     shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1),
+                        side: const BorderSide(width: 1, color: AppColor.secondaryColor),
                         borderRadius: BorderRadius.circular(7))),
                 child: PrimaryText(
                   text: 'Cancel',
@@ -321,9 +325,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int myIndex = 0;
   List<Widget> widgetList = [
     const Home(),
-    const Signing(),
-    const Documentation(),
     const Share(),
+    const Documentation(),
+    const SearchDocument(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -95,8 +95,8 @@ class _CreateAccountState extends State<CreateAccount> {
         const Spacer(),
         AppButton(
             onTap: () {
-              // createAccountController.createAccountWithEmail();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
+              createAccountController.createAccountWithEmail();
+              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
             },
             child: PrimaryText(
               text: 'Create Account',

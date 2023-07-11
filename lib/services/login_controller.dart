@@ -15,7 +15,7 @@ class LoginController extends GetxController{
     var headers = {'Content-Type': 'application/json'};
     try{
       // var headers = {'Content-Type': 'application/json'};
-      var url = Uri.parse('https://teknotes-pxhbc.ondigitalocean.app/login');
+      var url = Uri.parse('https://teknotes-5e8e7844759b.herokuapp.com/login');
 
       Map body = {
         'email':emailController.text.trim(),

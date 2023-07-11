@@ -16,7 +16,7 @@ class CreateAccountController extends GetxController{
   Future<void> createAccountWithEmail() async{
     var headers = {'Content-Type': 'application/json'};
     try{
-      var url = Uri.parse('https://teknotes-pxhbc.ondigitalocean.app/register');
+      var url = Uri.parse('https://teknotes-5e8e7844759b.herokuapp.com/register');
 
       Map body = {
         'fullname' : fullNameController.text,

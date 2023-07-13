@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/auth/sign_in.dart';
 import 'package:teknotes/services/create_account_controller.dart';
 import '../utils/components.dart';
 import '../utils/constants.dart';
@@ -19,28 +18,23 @@ class _CreateAccountState extends State<CreateAccount> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Spacer(
-          flex: 2,
+      body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+        const SizedBox(height: 45,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SecondaryText(text: 'Create ', size: 25,),
+            SecondaryText(text: 'An Account', size: 25, fontWeight: FontWeight.w700,)
+          ],
         ),
-        RichText(
-            text: const TextSpan(children: [
-          TextSpan(
-              text: 'Create ',
-              style: TextStyle(color: AppColor.secondaryColor, fontSize: 25)),
-          TextSpan(
-              text: 'An Account',
-              style: TextStyle(
-                  color: AppColor.secondaryColor,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w700)),
-        ])),
-        const SizedBox(height: 20),
+        const SizedBox(height: 25),
         PrimaryText(
           text: 'quis cras tellus nibh egestas mauris venenatis\nnibh.',
           textAlign: TextAlign.left,
         ),
-        const Spacer(),
+        const SizedBox(height: 30),
         SecondaryText(
           text: 'Full Name',
           color: AppColor.primaryColor,
@@ -53,7 +47,7 @@ class _CreateAccountState extends State<CreateAccount> {
             obcureText: false,
             isReadOnly: false,
             keyBoardType: TextInputType.text),
-        const Spacer(),
+        const SizedBox(height: 30),
         SecondaryText(
           text: 'E-mail',
           color: AppColor.primaryColor,
@@ -66,7 +60,7 @@ class _CreateAccountState extends State<CreateAccount> {
             obcureText: false,
             isReadOnly: false,
             keyBoardType: TextInputType.emailAddress),
-        const Spacer(),
+        const SizedBox(height: 30),
         SecondaryText(
           text: 'Password',
           color: AppColor.primaryColor,
@@ -79,50 +73,39 @@ class _CreateAccountState extends State<CreateAccount> {
             obcureText: isVisible,
             isReadOnly: false,
             keyBoardType: TextInputType.visiblePassword,
-            sufixIcon: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
-                icon: isVisible
-                    ? const Icon(
-                        Icons.visibility_off_outlined,
-                        color: AppColor.secondaryColor,
-                      )
-                    : const Icon(Icons.visibility_outlined,
-                        color: AppColor.primaryColor))),
-        const Spacer(),
+            sufixIcon: GestureDetector(
+                onTap: () {
+              setState(() {
+                isVisible = !isVisible;
+              });
+            },
+                child: isVisible? const InvisiblePassword() : const VisiblePassword())
+        ),
+        const SizedBox(height: 35),
         AppButton(
             onTap: () {
               createAccountController.createAccountWithEmail();
-              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigation()));
             },
             child: PrimaryText(
               text: 'Create Account',
               color: Colors.white,
             )),
-        const Spacer(),
+        const SizedBox(height: 30),
         Center(child: PrimaryText(text: 'Already have an account?')),
         const SizedBox(
           height: 4,
         ),
         Center(
-          child: TextButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const SignIn()));
-            },
-            style: ButtonStyle(
-              surfaceTintColor: MaterialStatePropertyAll(Colors.transparent)
-            ),
+          child: GestureDetector(
+            onTap: (){},
             child: SecondaryText(
               text: 'Sign in',
               size: 12,
             ),
-          ),
+          )
         )
       ]),
     );
   }
 }
+

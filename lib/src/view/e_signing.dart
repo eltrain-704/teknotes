@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/src/view/e_signing_2.dart';
+import '../../utils/components.dart';
 import '../../utils/constants.dart';
 
 class Signing extends StatefulWidget {
@@ -17,6 +17,7 @@ class _SigningState extends State<Signing> {
         body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 45,),
         Row(
           children: [
             GestureDetector(
@@ -29,7 +30,7 @@ class _SigningState extends State<Signing> {
                   borderRadius: BorderRadius.circular(2),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(3),
                   child: const Icon(
                     Icons.arrow_back_outlined,
                     color: Colors.white,
@@ -151,7 +152,7 @@ class _SigningState extends State<Signing> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
 
-            showDialog(context: context, builder:(context)=> Signature());
+            showDialog(context: context, builder:(context)=> const Signature());
           },
           elevation: 2,
           child: Image.asset(
@@ -164,58 +165,5 @@ class _SigningState extends State<Signing> {
 
 
 
-class Signature extends StatelessWidget {
-  const Signature({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      backgroundColor: Colors.grey[200],
-      contentPadding: const EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      title: PrimaryText(text: 'Do you want to upload from\nwhat you already have', textAlign: TextAlign.center, size: 14,),
-      children: [
-        Center(
-          child: FilledButton(
-            onPressed: () {},
-            style: FilledButton.styleFrom(
-                minimumSize: (const Size(197, 50)),
-                backgroundColor: Colors.grey[200],
-                shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: AppColor.secondaryColor),
-                    borderRadius: BorderRadius.circular(7))),
-            child: PrimaryText(
-              text: 'Yes, upload',
-              color: AppColor.secondaryColor,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Center(
-          child: FilledButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const Signing2()));
-            },
-            style: FilledButton.styleFrom(
-                minimumSize: (const Size(197, 50)),
-                backgroundColor: AppColor.secondaryColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7))),
-            child: PrimaryText(
-              text: 'No, sign manually',
-              color: Colors.white,
-            ),
-          ),
-        ),
-
-
-      ],
-    );
-  }
-}
 

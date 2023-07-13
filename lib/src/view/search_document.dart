@@ -16,6 +16,7 @@ class _SearchDocumentState extends State<SearchDocument> {
       backgroundColor: Colors.grey[200],
       body: Stack(
         children: [
+          const SizedBox(height: 45,),
           Align(
             alignment: Alignment.centerRight,
             child: Image.asset(
@@ -53,7 +54,7 @@ class _SearchDocumentState extends State<SearchDocument> {
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Container(
-                            padding: EdgeInsets.all(3),
+                            padding: const EdgeInsets.all(3),
                             child: const Icon(
                               Icons.arrow_back_outlined,
                               color: Colors.white,

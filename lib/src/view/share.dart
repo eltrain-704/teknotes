@@ -24,7 +24,7 @@ class _ShareState extends State<Share> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Spacer(),
+          const SizedBox(height: 45,),
           Row(
             children: [
               GestureDetector(
@@ -57,57 +57,24 @@ class _ShareState extends State<Share> {
               )
             ],
           ),
-          const Spacer(),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white,
-            ),
-            child: ListTile(
-              title: PrimaryText(
-                text: 'Email',
-                size: 17,
-                color: AppColor.secondaryColor,
-              ),
-              subtitle: PrimaryText(
-                text: mail,
-                size: 12,
-              ),
-            ),
-          ),
-          const Spacer(),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white,
-            ),
-            child: ListTile(
-              title: PrimaryText(
-                text: 'Role',
-                size: 17,
-                color: AppColor.secondaryColor,
-              ),
-              subtitle: PrimaryText(
-                text: 'Can Sign',
-                size: 12,
-              ),
-              trailing: IconButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return const RoleMenu();
-                        });
-                  },
-                  icon: const Icon(Icons.menu_rounded)),
-            ),
-          ),
-          const Spacer(),
+          const SizedBox(height: 30,),
+          AppTile(titleText: 'Email', subText: mail),
+          const SizedBox(height: 20,),
+          AppTile(titleText: 'Role', subText: 'Can sign', trailing: IconButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const RoleMenu();
+                    });
+              },
+              icon: const Icon(Icons.menu_rounded)),),
+          const SizedBox(height: 25,),
           Padding(
             padding: const EdgeInsets.only(left: 21),
             child: PrimaryText(
               text: 'Share',
-              size: 17,
+              size: 20,
               color: AppColor.secondaryColor,
               fontWeight: FontWeight.w500,
             ),
@@ -136,7 +103,7 @@ class _ShareState extends State<Share> {
                 });
               }),
           const SizedBox(
-            height: 35,
+            height: 40,
           ),
           AppButton(
               onTap: () {},
@@ -144,7 +111,7 @@ class _ShareState extends State<Share> {
                 text: 'Send Invitation',
                 color: Colors.white,
               )),
-          const Spacer(),
+          const SizedBox(height: 30,),
           AppButton(
               onTap: () {},
               backgroundColor: Colors.transparent,
@@ -170,7 +137,7 @@ class _ShareState extends State<Share> {
                   )
                 ],
               )),
-          const Spacer(),
+          const SizedBox(height: 30,),
           PrimaryText(
             text: 'People than can access',
             size: 20,
@@ -178,54 +145,19 @@ class _ShareState extends State<Share> {
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(
-            height: 20,
+            height: 15,
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white,
-            ),
-            child: ListTile(
-              title: PrimaryText(
-                text: mail,
-                size: 17,
-                color: AppColor.secondaryColor,
-              ),
-              subtitle: PrimaryText(
-                text: 'Owner',
-                size: 12,
-              ),
-              trailing:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
-            ),
-          ),
-          const Spacer(),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white,
-            ),
-            child: ListTile(
-              title: PrimaryText(
-                text: mail,
-                size: 17,
-                color: AppColor.secondaryColor,
-              ),
-              subtitle: PrimaryText(
-                text: 'Can sign',
-                size: 12,
-              ),
-              trailing: IconButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return const MenuList();
-                        });
-                  },
-                  icon: const Icon(Icons.menu_rounded)),
-            ),
-          ),
+          AppTile(titleText: mail, subText: 'Owner', trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
+          const SizedBox(height: 20,),
+          AppTile(titleText: mail, subText: 'Can sign', trailing: IconButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const MenuList();
+                    });
+              },
+              icon: const Icon(Icons.menu_rounded))),
         ],
       ),
     );

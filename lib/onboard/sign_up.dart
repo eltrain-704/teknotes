@@ -19,8 +19,8 @@ class _SignUPState extends State<SignUP> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Spacer(
-            flex: 2,
+          const SizedBox(
+              height:45
           ),
           SecondaryText(
             textAlign: TextAlign.center,
@@ -29,7 +29,9 @@ class _SignUPState extends State<SignUP> {
             size: 25,
             fontWeight: FontWeight.w500,
           ),
-          const Spacer(),
+          const SizedBox(
+              height:20
+          ),
           RichText(
               textAlign: TextAlign.center,
               text: TextSpan(children: [
@@ -41,7 +43,9 @@ class _SignUPState extends State<SignUP> {
                     style:
                         const TextStyle(fontSize: 12, color: AppColor.primaryColor))
               ])),
-          const Spacer(),
+          const SizedBox(
+              height:20
+          ),
           AppButton(
             onTap: () {
               Navigator.push(context,
@@ -52,7 +56,9 @@ class _SignUPState extends State<SignUP> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          const Spacer(),
+          const SizedBox(
+              height:30
+          ),
           AppButton(
             onTap: () {
               Navigator.push(
@@ -66,25 +72,25 @@ class _SignUPState extends State<SignUP> {
               color: Colors.black,
             ),
           ),
-          const Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Divider(
-                thickness: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: PrimaryText(
-                  text: 'Or',
-                ),
-              ),
-              const Divider(
-                thickness: 10,
-              )
-            ],
+          const SizedBox(
+              height:30
           ),
-          const Spacer(),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 7),
+                  child: PrimaryText(
+                    text: 'Or',
+                  ),
+                ),
+                const Divider(),
+              ],
+            ),
+          const SizedBox(
+              height:30
+          ),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -94,8 +100,8 @@ class _SignUPState extends State<SignUP> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 30,
-                  width: 40,
+                  height: 25,
+                  width: 30,
                   child: Image.asset(
                     'assets/images/google.png',
                     fit: BoxFit.fill,
@@ -111,7 +117,9 @@ class _SignUPState extends State<SignUP> {
               ],
             ),
           ),
-          const Spacer(),
+          const SizedBox(
+              height:30
+          ),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -121,7 +129,7 @@ class _SignUPState extends State<SignUP> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 25,
                   width: 40,
                   child: Image.asset(
                     'assets/images/facebook.png',
@@ -138,7 +146,9 @@ class _SignUPState extends State<SignUP> {
               ],
             ),
           ),
-          const Spacer(),
+          const SizedBox(
+              height:30
+          ),
           AppButton(
             onTap: () {},
             backgroundColor: Colors.transparent,
@@ -148,8 +158,8 @@ class _SignUPState extends State<SignUP> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 30,
-                  width: 40,
+              height: 20,
+              width: 35,
                   child: Image.asset(
                     'assets/images/apple_store.png',
                     fit: BoxFit.fill,
@@ -170,3 +180,8 @@ class _SignUPState extends State<SignUP> {
     );
   }
 }
+
+
+
+
+

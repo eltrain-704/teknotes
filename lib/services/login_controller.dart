@@ -11,10 +11,10 @@ class LoginController extends GetxController{
   TextEditingController passwordController = TextEditingController();
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
+
   Future<void> LoginWithEmail() async{
     var headers = {'Content-Type': 'application/json'};
     try{
-      // var headers = {'Content-Type': 'application/json'};
       var url = Uri.parse('https://teknotes-5e8e7844759b.herokuapp.com/login');
 
       Map body = {
@@ -24,23 +24,42 @@ class LoginController extends GetxController{
 
       http.Response response = await http.post(url, body: jsonEncode(body), headers: headers);
 
-      if (response.statusCode == 200){
-        final json = jsonDecode(response.body);
-        var token = json ['token'];
-        print(token);
-        final SharedPreferences? prefs = await _prefs;
-        await prefs?.setString('token', token);
+      switch (response.statusCode) {
+        case (200):
+          final json = jsonDecode(response.body);
+          var token = json['token'];
+          print('token: $token');
 
-        emailController.clear();
-        passwordController.clear();
-        Get.off(const BottomNavigation());
-        //go to home
-      } else{
-        throw ("Invalid email or password");
+          final SharedPreferences prefs = await _prefs;
+
+          await prefs.setString('token', token);
+          emailController.clear();
+          passwordController.clear();
+          Get.off(const BottomNavigation());
+          break;
+        case (500):
+          showDialog(
+              context: Get.context!,
+              builder: (context) => SimpleDialog(
+                title: PrimaryText(text: 'Error'),
+                contentPadding: EdgeInsets.all(20),
+                children: const [Text('Internal Server Error')],
+              ));
+          break;
+
+        case (400):
+          showDialog(
+              context: Get.context!,
+              builder: (context) => SimpleDialog(
+                title: PrimaryText(text: 'Error'),
+                contentPadding: EdgeInsets.all(20),
+                children: const [Text('Invalid Email or password')],
+              ));
+          break;
+        default:
+          break;
       }
-
     } catch(e){
-      // throw Exception(e.toString());
       Get.back();
       showDialog(context: Get.context!, builder: (context)=> SimpleDialog(
         title: PrimaryText(text: 'Error'),

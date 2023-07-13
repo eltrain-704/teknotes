@@ -26,7 +26,7 @@ class AppButton extends StatelessWidget {
           backgroundColor: backgroundColor != null? Colors.transparent : AppColor.secondaryColor,
           surfaceTintColor: Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(8),
             side: BorderSide(
               color: borderColor,
               width: borderWidth,
@@ -205,16 +205,18 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 40,
-            bottom: 35,
-            left: 15,
-            right: 15,
-          ),
-          child: body,
-        )
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 40,
+              bottom: 35,
+              left: 15,
+              right: 15,
+            ),
+            child: body,
+          )
+        ),
       ),
       floatingActionButton: floatingActionButton,
     );

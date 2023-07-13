@@ -16,6 +16,7 @@ class _DocumentationState extends State<Documentation> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 45,),
           Row(
             children: [
               GestureDetector(
@@ -28,7 +29,7 @@ class _DocumentationState extends State<Documentation> {
                     borderRadius: BorderRadius.circular(2),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     child: const Icon(
                       Icons.arrow_back_outlined,
                       color: Colors.white,
@@ -101,11 +102,13 @@ class _DocumentationState extends State<Documentation> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => const Documentation2()),
-              (route) => false);
+
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Documentation2()));
+          // Navigator.pushAndRemoveUntil(
+          //     context,
+          //     MaterialPageRoute(
+          //         builder: (BuildContext context) => const Documentation2()),
+          //     (route) => false);
         },
         elevation: 2,
         child: Image.asset(

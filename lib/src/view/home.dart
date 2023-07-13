@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:teknotes/utils/constants.dart';
 import 'package:teknotes/src/view/form.dart';
 import 'package:teknotes/src/view/profile.dart';
-// import 'package:iconsax/iconsax.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _HomeState extends State<Home> {
     return AppScaffold(
       body: Column(
         children: [
-          const Spacer(flex: 2),
+          const SizedBox(height: 45,),
           Row(
             children: [
               Container(
@@ -75,7 +74,7 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
-          const Spacer(),
+          const SizedBox(height: 45,),
           Container(
             padding: const EdgeInsets.all(20),
             width: double.infinity,
@@ -124,7 +123,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const Spacer(),
+          const SizedBox(height: 25,),
           Container(
             padding: const EdgeInsets.all(20),
             width: double.infinity,
@@ -179,7 +178,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const Spacer(),
+          const SizedBox(height: 25,),
           Container(
             padding: const EdgeInsets.all(20),
             width: double.infinity,

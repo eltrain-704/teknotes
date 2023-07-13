@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknotes/src/view/documentation.dart';
+import 'package:teknotes/src/view/e_signing_2.dart';
 import 'package:teknotes/src/view/share.dart';
 import '../src/view/search_document.dart';
 import 'constants.dart';
@@ -246,7 +247,7 @@ class _NameBoxState extends State<NameBox> {
                       borderRadius: BorderRadius.circular(2),
                     ),
                     child: Container(
-                      padding: EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(3),
                       child: const Icon(
                         Icons.close,
                         color: Colors.white,
@@ -360,3 +361,147 @@ class _BottomNavigationState extends State<BottomNavigation> {
     );
   }
 }
+
+
+
+//Visible Password
+class VisiblePassword extends StatelessWidget {
+  const VisiblePassword({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xffa800ff), Color(0xff2b62ff)]
+        ).createShader(bounds);
+      },
+      child: const Icon(
+        Icons.visibility_outlined,
+        color: Colors.white,
+      ),
+    );
+  }
+}
+
+//Invisible Password
+class InvisiblePassword extends StatelessWidget {
+  const InvisiblePassword({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xffa800ff), Color(0xff2b62ff)]
+        ).createShader(bounds);
+      },
+      child: const Icon(
+        Icons.visibility_off_outlined,
+        color: Colors.white,
+      ),
+    );
+  }
+}
+
+
+
+//App ListTile
+
+class AppTile extends StatefulWidget {
+  String titleText;
+  String subText;
+  Widget? trailing;
+   AppTile({Key? key, required this.titleText, required this.subText, this.trailing}) : super(key: key);
+
+  @override
+  State<AppTile> createState() => _AppTileState();
+}
+
+class _AppTileState extends State<AppTile> {
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.white,
+      ),
+      child: ListTile(
+        title: PrimaryText(
+          text: widget.titleText,
+          size: 17,
+          color: AppColor.secondaryColor,
+        ),
+        subtitle: PrimaryText(
+          text: widget.subText,
+          size: 12,
+        ),
+        trailing: widget.trailing,
+      ),
+    );
+  }
+}
+
+
+
+//Signature
+class Signature extends StatelessWidget {
+  const Signature({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+      backgroundColor: Colors.grey[200],
+      contentPadding: const EdgeInsets.all(20),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      title: PrimaryText(text: 'Do you want to upload from\nwhat you already have', textAlign: TextAlign.center, size: 14,),
+      children: [
+        Center(
+          child: FilledButton(
+            onPressed: () {},
+            style: FilledButton.styleFrom(
+                minimumSize: (const Size(197, 50)),
+                backgroundColor: Colors.grey[200],
+                shape: RoundedRectangleBorder(
+                    side: const BorderSide(width: 1, color: AppColor.secondaryColor),
+                    borderRadius: BorderRadius.circular(7))),
+            child: PrimaryText(
+              text: 'Yes, upload',
+              color: AppColor.secondaryColor,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: FilledButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Signing2()));
+            },
+            style: FilledButton.styleFrom(
+                minimumSize: (const Size(197, 50)),
+                backgroundColor: AppColor.secondaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7))),
+            child: PrimaryText(
+              text: 'No, sign manually',
+              color: Colors.white,
+            ),
+          ),
+        ),
+
+
+      ],
+    );
+  }
+}
+
+

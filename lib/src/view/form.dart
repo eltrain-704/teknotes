@@ -16,6 +16,7 @@ class _FormsState extends State<Forms> {
     return AppScaffold(
       body: Column(
         children: [
+          const SizedBox(height: 45,),
            Align(
             alignment: Alignment.topLeft,
             child: GestureDetector(
@@ -28,7 +29,7 @@ class _FormsState extends State<Forms> {
                   borderRadius: BorderRadius.circular(2),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(3),
                   child: const Icon(
                     Icons.arrow_back_outlined,
                     color: Colors.white,

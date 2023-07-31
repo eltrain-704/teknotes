@@ -39,6 +39,7 @@ dependencies:
   #web services
   http: ^1.1.0
   shared_preferences: ^2.1.2
+  flutter_downloader: ^1.8.0
 
   #state management
   get: ^4.6.5

@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:teknotes/onboard/sp.dart';
 import 'package:teknotes/src/view/e_signing.dart';
 import 'package:teknotes/utils.dart';
+import 'package:teknotes/viNotes/displayNotes/titlePage.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Teknotes',
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
-      home: const Splash(),
+      //home: const Splash(),
+      home: TitlePage(),
     );
   }
 }

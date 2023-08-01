@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/utils/constants.dart';
-import 'e_signing.dart';
+import 'package:teknotes/common/constants.dart';
+import 'e_signing_view.dart';
 
 class Signing2 extends StatefulWidget {
   const Signing2({Key? key}) : super(key: key);
@@ -117,7 +117,7 @@ class _Signing2State extends State<Signing2> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Signing()));
+                      builder: (BuildContext context) => const SigningView()));
             },
             child: PrimaryText(
               text: 'Done',

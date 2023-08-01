@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:teknotes/auth/sign_in.dart';
-import 'package:teknotes/utils/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:teknotes/src/view/e_signing.dart';
-import '../../utils/components.dart';
+import 'package:teknotes/common/components.dart';
+import 'package:teknotes/common/constants.dart';
+import 'package:teknotes/features/auth/sign_in.dart';
+import 'package:teknotes/features/view/e_signing_view.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileScreenState extends State<ProfileScreen> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   String userName = 'Ajani Ben D.';
@@ -30,7 +31,6 @@ class _ProfileState extends State<Profile> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 45,),
           Row(
             children: [
               GestureDetector(
@@ -40,125 +40,127 @@ class _ProfileState extends State<Profile> {
                 child: Material(
                   color: AppColor.secondaryColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(2),
+                    borderRadius: BorderRadius.circular(2.r),
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(3),
-                    child: const Icon(
+                    padding:  EdgeInsets.all(3.r),
+                    child:  Icon(
                       Icons.arrow_back_outlined,
                       color: Colors.white,
-                      size: 20,
+                      size: 20.sp,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 100,
+               SizedBox(
+                width: 100.w,
               ),
               PrimaryText(
                 text: 'Profile',
-                size: 25,
+                size: 30.sp,
                 color: AppColor.secondaryColor,
                 fontWeight: FontWeight.w500,
               )
             ],
           ),
-          const SizedBox(
-            height: 25,
+           SizedBox(
+            height: 40.h,
           ),
           Row(
             children: [
               Container(
-                height: 95,
-                width: 70,
+                height: 102.h,
+                width: 102.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 child:
                     Image.asset('assets/images/user.png', fit: BoxFit.fill),
               ),
-              const SizedBox(
-                width: 12,
+               SizedBox(
+                width: 12.w,
               ),
-              RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: '$userName\n',
-                    style: const TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400)),
-                TextSpan(
-                    text: '@$user',
-                    style: const TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w400))
-              ]))
+                Wrap(
+                  direction: Axis.vertical,
+                  children: [
+                    PrimaryText(
+                        text: userName,
+                        size: 24.sp,
+                        fontWeight: FontWeight.w400),
+                    PrimaryText(
+                        text: '@$user',
+                        size: 18,
+                        fontWeight: FontWeight.w400),
+                  ],
+                ),
             ],
           ),
-          const SizedBox(
-            height: 25,
+           SizedBox(
+            height: 30.h,
           ),
           PrimaryText(
             text: 'Profile',
-            size: 20,
+            size: 18.sp,
+            fontWeight: FontWeight.w400,
           ),
-          const SizedBox(
-            height: 15,
+           SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Personal Name', subText: userName,),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Username', subText: '@$user',),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Business Name', subText: mail,),
-          const SizedBox(
-            height: 12,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Set Signature', subText: mail, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 40.h,
           ),
           PrimaryText(
             text: 'Company Profile',
-            size: 20,
+            size: 18.sp,
+            fontWeight: FontWeight.w400,
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Business Email', subText: mail),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Company Address (Physical/Online)', subText: web),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Business Industry', subText: industry, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Location', subText: location, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Number of Employees', subText: employees, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 40.h,
           ),
           PrimaryText(
             text: 'Others',
-            size: 20,
+            size: 18.sp,
+            fontWeight: FontWeight.w400,
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: 15.h,
           ),
-
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(5.r),
               color: Colors.white,
             ),
             child: ListTile(
@@ -166,38 +168,40 @@ class _ProfileState extends State<Profile> {
                   onTap: () {},
                   child: PrimaryText(
                     text: 'Password',
-                    size: 17,
+                    size: 18.sp,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.secondaryColor,
                   )),
             ),
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(5.r),
               color: Colors.white,
             ),
             child: ListTile(
               leading: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Signing()));
+                        MaterialPageRoute(builder: (context) => const SigningView()));
                   },
                   child: PrimaryText(
                     text: 'Signature',
-                    size: 17,
+                    size: 18.sp,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.secondaryColor,
                   )),
             ),
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(5.r),
               color: Colors.white,
             ),
             child: ListTile(
@@ -205,17 +209,19 @@ class _ProfileState extends State<Profile> {
                   onTap: () async {
                     final SharedPreferences prefs = await _prefs;
                     prefs.clear();
-                     Get.offAll(const SignIn());
+
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SignIn() ));
                   },
                   child: PrimaryText(
                     text: 'Log out',
-                    size: 17,
+                    size: 18.sp,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.secondaryColor,
                   )),
             ),
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 15.h,
           ),
           AppTile(titleText: 'Language', subText: language, trailing: IconButton(
               onPressed: () {}, icon: const Icon(Icons.menu_rounded)),)

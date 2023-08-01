@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/src/view/documentation.dart';
-import 'package:teknotes/src/view/e_signing_2.dart';
-import 'package:teknotes/src/view/share.dart';
-import '../src/view/search_document.dart';
+import 'package:teknotes/common/drawing_point.dart';
+import 'package:teknotes/features/view/documentation_grid.dart';
+import 'package:teknotes/features/view/e_signing_2.dart';
+import 'package:teknotes/features/view/home_screen.dart';
+import 'package:teknotes/features/view/search_document.dart';
+import 'package:teknotes/features/view/share_screen.dart';
 import 'constants.dart';
-import '../src/view/home.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 //Role Menu list for Share screen
 class RoleMenu extends StatefulWidget {
@@ -28,11 +31,12 @@ class _RoleMenuState extends State<RoleMenu> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
         backgroundColor: Colors.grey[200],
         title: PrimaryText(
           text: 'Access Limit',
-          fontWeight: FontWeight.bold,
+          size: 17.sp,
+          fontWeight: FontWeight.w600,
           color: AppColor.primaryColor,
         ),
         children: [
@@ -41,7 +45,8 @@ class _RoleMenuState extends State<RoleMenu> {
             title: PrimaryText(
               text: list[0],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: list[0],
             groupValue: selectedList,
@@ -56,7 +61,8 @@ class _RoleMenuState extends State<RoleMenu> {
             title: PrimaryText(
               text: list[1],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: list[1],
             groupValue: selectedList,
@@ -71,7 +77,8 @@ class _RoleMenuState extends State<RoleMenu> {
             title: PrimaryText(
               text: list[2],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: list[2],
             groupValue: selectedList,
@@ -86,7 +93,8 @@ class _RoleMenuState extends State<RoleMenu> {
             title: PrimaryText(
               text: list[3],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: list[3],
             groupValue: selectedList,
@@ -101,7 +109,8 @@ class _RoleMenuState extends State<RoleMenu> {
             title: PrimaryText(
               text: list[4],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: list[4],
             groupValue: selectedList,
@@ -136,11 +145,12 @@ class _MenuListState extends State<MenuList> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
         backgroundColor: Colors.grey[200],
         title: PrimaryText(
           text: 'Access Limit',
-          fontWeight: FontWeight.bold,
+          size: 17.sp,
+          fontWeight: FontWeight.w600,
           color: AppColor.primaryColor,
         ),
         children: [
@@ -149,7 +159,8 @@ class _MenuListState extends State<MenuList> {
             title: PrimaryText(
               text: menu[0],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: menu[0],
             groupValue: selectedMenu,
@@ -164,7 +175,8 @@ class _MenuListState extends State<MenuList> {
             title: PrimaryText(
               text: menu[1],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: menu[1],
             groupValue: selectedMenu,
@@ -179,7 +191,8 @@ class _MenuListState extends State<MenuList> {
             title: PrimaryText(
               text: menu[2],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: menu[2],
             groupValue: selectedMenu,
@@ -194,7 +207,8 @@ class _MenuListState extends State<MenuList> {
             title: PrimaryText(
               text: menu[3],
               color: AppColor.primaryColor,
-              size: 11,
+              size: 17.sp,
+              fontWeight: FontWeight.w400,
             ),
             value: menu[3],
             groupValue: selectedMenu,
@@ -217,6 +231,8 @@ class NameBox extends StatefulWidget {
 }
 
 class _NameBoxState extends State<NameBox> {
+  String title = '';
+  String? content;
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
@@ -258,8 +274,8 @@ class _NameBoxState extends State<NameBox> {
                 ),
               ],
             ),
-            SecondaryText(
-              text: 'Document Name',
+            PrimaryText(
+              text: title,
               color: AppColor.primaryColor,
               textAlign: TextAlign.left,
               size: 11,
@@ -267,7 +283,8 @@ class _NameBoxState extends State<NameBox> {
             const SizedBox(
               height: 4,
             ),
-            const MyTextField(
+             AppTextField(
+                 onChanged: (value) => title = value!,
                 obcureText: false,
                 isReadOnly: false,
                 hintText: 'Ajani Ben D.',
@@ -277,7 +294,9 @@ class _NameBoxState extends State<NameBox> {
             ),
             Center(
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context, Note(title, content! ));
+                },
                 style: FilledButton.styleFrom(
                     minimumSize: (const Size(197, 60)),
                     backgroundColor: AppColor.secondaryColor,
@@ -325,7 +344,7 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   int myIndex = 0;
   List<Widget> widgetList = [
-    const Home(),
+    const HomeScreen(),
     const Share(),
     const Documentation(),
     const SearchDocument(),
@@ -426,19 +445,23 @@ class _AppTileState extends State<AppTile> {
   @override
   Widget build(BuildContext context) {
     return  Container(
+      height: 76.h,
+      width: 370.w,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(5.r),
         color: Colors.white,
       ),
       child: ListTile(
         title: PrimaryText(
           text: widget.titleText,
-          size: 17,
+          size: 18.sp,
+          fontWeight: FontWeight.w400,
           color: AppColor.secondaryColor,
         ),
         subtitle: PrimaryText(
           text: widget.subText,
-          size: 12,
+          size: 15.sp,
+          fontWeight: FontWeight.w400,
         ),
         trailing: widget.trailing,
       ),
@@ -497,9 +520,130 @@ class Signature extends StatelessWidget {
             ),
           ),
         ),
-
-
       ],
+    );
+  }
+}
+
+
+
+
+
+//Canvas Painter
+class DrawingPainter extends CustomPainter {
+  final List<DrawingPoint> drawingPoints;
+
+  DrawingPainter({required this.drawingPoints});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    for (var drawingPoint in drawingPoints) {
+      final paint = Paint()
+        ..color = drawingPoint.color
+        ..isAntiAlias = true
+        ..strokeWidth = drawingPoint.width
+        ..strokeCap = StrokeCap.round;
+
+      for (var i = 0; i < drawingPoint.offsets.length; i++) {
+        var notLastOffset = i != drawingPoint.offsets.length - 1;
+
+        if (notLastOffset) {
+          final current = drawingPoint.offsets[i];
+          final next = drawingPoint.offsets[i + 1];
+          canvas.drawLine(current, next, paint);
+        } else {
+          /// we do nothing
+        }
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+
+
+
+
+
+
+
+//nOTES
+class Note {
+  final String? title;
+  final String content;
+
+  Note(this.title, this.content );
+}
+
+
+//HomeBox widget
+
+class HomeBox extends StatelessWidget {
+  final String title;
+  final String imgpath;
+  final GestureTapCallback buttonCall;
+  final Matrix4? transformMatrix;
+  const HomeBox({Key? key, required this.title, required this.imgpath, required this.buttonCall, this.transformMatrix}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding:  EdgeInsets.symmetric(
+          horizontal: 23.w, vertical: 15.h),
+      height: 180.h,
+      width: 380.w,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(8.r)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SecondaryText(
+                text: title,
+                size: 16.sp,
+                fontWeight: FontWeight.w400,
+              ),
+              SizedBox(height: 10.h),
+              PrimaryText(
+                text:
+                'Lorem Ipsum dolor sirasbjkbnkasasnasn\nwiusbusuashahosh',
+                size: 12.sp,
+                fontWeight: FontWeight.w400,
+              ),
+              SizedBox(height: 35.h),
+              FilledButton(
+                onPressed: buttonCall,
+                style: FilledButton.styleFrom(
+                    fixedSize: Size(125.w, 35.h),
+                    backgroundColor: AppColor.secondaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.r))),
+                child: PrimaryText(
+                  text: 'Create',
+                  size: 12,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+          Container(
+            height: 87.h,
+            width: 87.h,
+            transform: transformMatrix,
+            child: Image.asset(
+              imgpath,
+              fit: BoxFit.fill,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -3,8 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teknotes/utils/constants.dart';
-import '../utils/components.dart';
+import 'package:teknotes/common/components.dart';
+import 'package:teknotes/common/constants.dart';
+
 
 class CreateAccountController extends GetxController {
   TextEditingController fullNameController = TextEditingController();

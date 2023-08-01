@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/utils/constants.dart';
-import '../../utils/components.dart';
+import 'package:teknotes/common/components.dart';
+import 'package:teknotes/common/constants.dart';
+
 
 class Documentation2 extends StatefulWidget {
   const Documentation2({Key? key}) : super(key: key);
@@ -10,6 +11,9 @@ class Documentation2 extends StatefulWidget {
 }
 
 class _Documentation2State extends State<Documentation2> {
+  // List<Note> notes = [];
+  String content = '';
+  String? title = null;
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -51,7 +55,7 @@ class _Documentation2State extends State<Documentation2> {
                 showDialog(context: context, builder: (context) => const NameBox());
               },
               child: SizedBox(
-                height: 28,
+                height: 25,
                 // width: 7,
                 child: Image.asset(
                   'assets/images/page-1.png',
@@ -63,7 +67,7 @@ class _Documentation2State extends State<Documentation2> {
             GestureDetector(
               onTap: () {},
               child: SizedBox(
-                height: 28,
+                height: 25,
                 width: 7,
                 child: Image.asset(
                   'assets/images/menu.png',
@@ -165,6 +169,7 @@ class _Documentation2State extends State<Documentation2> {
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Expanded(
             child: TextFormField(
+              onChanged: (value) => content = value,
               keyboardType: TextInputType.multiline,
               maxLines: null,
               cursorColor: Colors.black,
@@ -220,7 +225,12 @@ class _Documentation2State extends State<Documentation2> {
               ),
             ],
           ),
-        )
+        ),
+        AppButton(
+            onTap: (){
+          Navigator.pop(context, Note(content, title!));
+        },
+            child: PrimaryText(text: 'save',))
       ],
     ));
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:teknotes/common/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
 
 
 
@@ -16,17 +16,14 @@ class _SearchDocumentState extends State<SearchDocument> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
-            top: 137.h - 44.h,
-            left: 24.w,
-            right: 24.w,
+            top: 93.h,
           ),
           child: Stack(
             children: [
-              // const SizedBox(height: 45,),
               Align(
                 alignment: Alignment.centerRight,
                 child: Image.asset(

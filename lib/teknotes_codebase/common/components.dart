@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/common/drawing_point.dart';
-import 'package:teknotes/features/view/documentation_grid.dart';
-import 'package:teknotes/features/view/e_signing_2.dart';
-import 'package:teknotes/features/view/home_screen.dart';
-import 'package:teknotes/features/view/search_document.dart';
-import 'package:teknotes/features/view/share_screen.dart';
+import 'package:teknotes/teknotes_codebase/common/drawing_point.dart';
+import 'package:teknotes/teknotes_codebase/features/view/documentation_grid.dart';
+import 'package:teknotes/teknotes_codebase/features/view/e_signing_2.dart';
+import 'package:teknotes/teknotes_codebase/features/view/home_screen.dart';
+import 'package:teknotes/teknotes_codebase/features/view/search_document.dart';
+import 'package:teknotes/teknotes_codebase/features/view/share_screen.dart';
 import 'constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -224,21 +224,19 @@ class _MenuListState extends State<MenuList> {
 
 //NameBox for renaming document
 class NameBox extends StatefulWidget {
-  const NameBox({Key? key}) : super(key: key);
+  const NameBox({Key? key, }) : super(key: key);
 
   @override
   State<NameBox> createState() => _NameBoxState();
 }
 
 class _NameBoxState extends State<NameBox> {
-  String title = '';
-  String? content;
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
       backgroundColor: Colors.grey[200],
-      contentPadding: const EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      contentPadding:  EdgeInsets.all(20.r),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -248,11 +246,12 @@ class _NameBoxState extends State<NameBox> {
               children: [
                 PrimaryText(
                   text: 'Edit Document Name',
-                  size: 17,
+                  size: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.secondaryColor,
                 ),
-                const SizedBox(
-                  width: 30,
-                ),
+                const Spacer(),
+
                 GestureDetector(
                   onTap: (){
                     Navigator.pop(context);
@@ -260,68 +259,74 @@ class _NameBoxState extends State<NameBox> {
                   child: Material(
                     color: AppColor.secondaryColor,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(2.r),
                     ),
                     child: Container(
-                      padding: const EdgeInsets.all(3),
-                      child: const Icon(
+                      padding:  EdgeInsets.all(3.r),
+                      child:  Icon(
                         Icons.close,
                         color: Colors.white,
-                        size: 20,
+                        size: 20.sp,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
+             SizedBox(
+              height: 30.h,
+            ),
             PrimaryText(
-              text: title,
-              color: AppColor.primaryColor,
-              textAlign: TextAlign.left,
-              size: 11,
+              text: 'Document Name',
+              color: AppColor.secondaryColor,
+              // textAlign: TextAlign.left,
+              size: 12,
             ),
-            const SizedBox(
-              height: 4,
+            SizedBox(
+              height: 3.h,
             ),
-             AppTextField(
-                 onChanged: (value) => title = value!,
+              const AppTextField(
                 obcureText: false,
                 isReadOnly: false,
                 hintText: 'Ajani Ben D.',
                 keyBoardType: TextInputType.text),
-            const SizedBox(
-              height: 40,
-            ),
-            Center(
-              child: FilledButton(
-                onPressed: () {
-                  Navigator.pop(context, Note(title, content! ));
-                },
-                style: FilledButton.styleFrom(
-                    minimumSize: (const Size(197, 60)),
-                    backgroundColor: AppColor.secondaryColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7))),
-                child: PrimaryText(
-                  text: 'Save',
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 30.h,
             ),
             Center(
               child: FilledButton(
                 onPressed: () {},
                 style: FilledButton.styleFrom(
-                    minimumSize: (const Size(197, 60)),
-                    backgroundColor: Colors.grey[200],
+                    fixedSize:  Size(196.w, 38.h),
+                    backgroundColor: AppColor.secondaryColor,
                     shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1, color: AppColor.secondaryColor),
-                        borderRadius: BorderRadius.circular(7))),
+                        borderRadius: BorderRadius.circular(8.r))),
+                child: PrimaryText(
+                  text: 'Save',
+                  size: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+             SizedBox(
+              height: 20.sp,
+            ),
+            Center(
+              child: FilledButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: FilledButton.styleFrom(
+    fixedSize:  Size(196.w, 38.h),
+                    backgroundColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                        side:  BorderSide(width: 1.w,),
+                        borderRadius: BorderRadius.circular(8.r))),
                 child: PrimaryText(
                   text: 'Cancel',
+                  size: 16.sp,
+                  fontWeight: FontWeight.w400,
                   color: AppColor.secondaryColor,
                 ),
               ),
@@ -345,9 +350,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int myIndex = 0;
   List<Widget> widgetList = [
     const HomeScreen(),
-    const Share(),
-    const Documentation(),
     const SearchDocument(),
+    const Documentation(),
+    const Share(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -479,27 +484,31 @@ class Signature extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       backgroundColor: Colors.grey[200],
-      contentPadding: const EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      title: PrimaryText(text: 'Do you want to upload from\nwhat you already have', textAlign: TextAlign.center, size: 14,),
+      contentPadding:  EdgeInsets.all(20.r),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
+      title: PrimaryText(text: 'Do you want to upload from\nwhat you already have', textAlign: TextAlign.center, size: 14.sp, fontWeight: FontWeight.w400,),
       children: [
         Center(
           child: FilledButton(
-            onPressed: () {},
+            //move to upload from phone
+            onPressed: () {
+            },
             style: FilledButton.styleFrom(
-                minimumSize: (const Size(197, 50)),
-                backgroundColor: Colors.grey[200],
+                fixedSize:  Size(196.w, 38.h),
+                backgroundColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: AppColor.secondaryColor),
-                    borderRadius: BorderRadius.circular(7))),
+                    side:  BorderSide(width: 1.w,),
+                    borderRadius: BorderRadius.circular(8.r))),
             child: PrimaryText(
               text: 'Yes, upload',
+              size: 16.sp,
+              fontWeight: FontWeight.w400,
               color: AppColor.secondaryColor,
             ),
           ),
         ),
-        const SizedBox(
-          height: 20,
+         SizedBox(
+          height: 20.sp,
         ),
         Center(
           child: FilledButton(
@@ -510,13 +519,15 @@ class Signature extends StatelessWidget {
                       builder: (BuildContext context) => const Signing2()));
             },
             style: FilledButton.styleFrom(
-                minimumSize: (const Size(197, 50)),
+                fixedSize:  Size(196.w, 38.h),
                 backgroundColor: AppColor.secondaryColor,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7))),
+                    borderRadius: BorderRadius.circular(8.r))),
             child: PrimaryText(
               text: 'No, sign manually',
               color: Colors.white,
+              size: 16.sp,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),
@@ -567,19 +578,6 @@ class DrawingPainter extends CustomPainter {
 
 
 
-
-
-
-
-//nOTES
-class Note {
-  final String? title;
-  final String content;
-
-  Note(this.title, this.content );
-}
-
-
 //HomeBox widget
 
 class HomeBox extends StatelessWidget {
@@ -594,8 +592,6 @@ class HomeBox extends StatelessWidget {
     return Container(
       padding:  EdgeInsets.symmetric(
           horizontal: 23.w, vertical: 15.h),
-      height: 180.h,
-      width: 380.w,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(8.r)),
       child: Row(
@@ -643,6 +639,105 @@ class HomeBox extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+
+
+//Menu options for Signing Screen
+enum Menu { rename, delete, share, download }
+
+class MenuBox extends StatelessWidget {
+  const MenuBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+      color: Colors.grey[200],
+      elevation: 10,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
+      itemBuilder: (context) =>  [
+        PopupMenuItem(
+            child: Row(
+                children: [
+                  SizedBox(
+                      height: 25.h,
+                      width: 25.h,
+                      child: Image.asset('assets/images/doc.png', fit: BoxFit.fill,)),
+                  SizedBox(width: 10.w),
+                  PrimaryText(text: 'E-Signing', size: 18.sp, fontWeight: FontWeight.w600, color: AppColor.primaryColor,)
+                ])
+        ),
+        PopupMenuItem(
+            child: Row(
+                children: [
+                  SizedBox(
+                      height: 22.h,
+                      width: 20.h,
+                      child: Image.asset('assets/images/vector-sWD.png', fit: BoxFit.fill,)),
+                  SizedBox(width: 10.w),
+                  PrimaryText(text: 'Rename', size: 17.sp, fontWeight: FontWeight.w400, color: AppColor.primaryColor,)
+                ])
+        ),
+        PopupMenuItem(
+            child: Row(
+                children: [
+                  SizedBox(
+                      height: 22.h,
+                      width: 20.h,
+                      child: Image.asset('assets/images/vector-f3K.png', fit: BoxFit.fill,)),
+                  SizedBox(width: 10.w),
+                  PrimaryText(text: 'Delete', size: 17.sp, fontWeight: FontWeight.w400, color: AppColor.primaryColor,)
+                ])
+        ),
+        PopupMenuItem(
+            child: Row(
+                children: [
+                  SizedBox(
+                      height: 22.h,
+                      width: 22.h,
+                      child: Image.asset('assets/images/vector-gRj.png', fit: BoxFit.fill,)),
+                  SizedBox(width: 10.w),
+                  PrimaryText(text: 'Share', size: 17.sp, fontWeight: FontWeight.w400, color: AppColor.primaryColor,)
+                ])
+        ),
+        PopupMenuItem(
+            child: Row(
+                children: [
+                  SizedBox(
+                      height: 22.h,
+                      width: 22.h,
+                      child: Image.asset('assets/images/vector-QkV.png', fit: BoxFit.fill,)),
+                  SizedBox(width: 10.w),
+                  PrimaryText(text: 'Downnload', size: 17.sp, fontWeight: FontWeight.w400, color: AppColor.primaryColor,)
+                ])
+        ),
+      ],
+      onSelected: (value) {
+        switch (value) {
+          case Menu.rename:
+          // Route => Invoice Screen
+            break;
+          case Menu.delete:
+          //Route => Incoice screen
+            break;
+          case Menu.share:
+
+            break;
+          case Menu.download:
+
+            break;
+        }
+      },
+      child: SizedBox(
+        height: 25.h,
+        width: 7.w,
+        child: Image.asset(
+          'assets/images/menu.png',
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

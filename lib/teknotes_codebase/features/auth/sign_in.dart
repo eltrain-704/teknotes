@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:teknotes/common/components.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/auth/create_account.dart';
+import 'package:teknotes/teknotes_codebase/common/components.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/auth/create_account.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -92,6 +92,7 @@ class _SignInState extends State<SignIn> {
         Center(
           child: AppButton(
               onTap: () {
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BottomNavigation()));
                 loginWithEmail();
               },
               backgroundColor: AppColor.secondaryColor,
@@ -138,7 +139,7 @@ class _SignInState extends State<SignIn> {
   }
 
   Future<void> loginWithEmail() async {
-    var url = Uri.parse('https://teknotes-5e8e7844759b.herokuapp.com/login');
+    var url = Uri.parse('https://teknotes-pxhbc.ondigitalocean.app/login');
     Map data = {
       'email': emailController.text.trim(),
       'password': passwordController.text,
@@ -155,38 +156,41 @@ class _SignInState extends State<SignIn> {
         body: jsonData,
       );
 
-      if (response.statusCode == 200) {
-        var responseData = jsonDecode(response.body);
-        var token = responseData['token'];
-        print('token: $token');
-        final SharedPreferences prefs = await _prefs;
-        await prefs.setString('token', token);
-        emailController.clear();
-        passwordController.clear();
+      switch (response.statusCode) {
+        case (200):
+          final json = jsonDecode(response.body);
+          var token = json['token'];
+          print('token: $token');
 
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const BottomNavigation()));
-      } else if (response.statusCode == 400) {
-        // ignore: use_build_context_synchronously
-        return showDialog(
-            context: context,
-            builder: (context) => SimpleDialog(
-                  title: PrimaryText(text: 'Error'),
-                  contentPadding: const EdgeInsets.all(20),
-                  children: const [Text('Invalid Email or password')],
-                ));
-      } else if (response.statusCode == 500) {
-        // ignore: use_build_context_synchronously
-        return showDialog(
-          context: context,
-          builder: (context) => SimpleDialog(
-            title: PrimaryText(text: 'Error'),
-            contentPadding: const EdgeInsets.all(20),
-            children: const [Text('Internal Server Error')],
-          ),
-        );
-      } else {
-        print('Login failed with status code: ${response.statusCode}');
+          final SharedPreferences prefs = await _prefs;
+
+          await prefs.setString('token', token);
+          emailController.clear();
+          passwordController.clear();
+          Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const BottomNavigation()));
+          break;
+        case (500):
+          showDialog(
+              context:context,
+              builder: (context) => SimpleDialog(
+                title: PrimaryText(text: 'Error'),
+                contentPadding: const EdgeInsets.all(20),
+                children: const [Text('Internal Server Error')],
+              ));
+          break;
+
+        case (400):
+          showDialog(
+              context: context,
+              builder: (context) => SimpleDialog(
+                title: PrimaryText(text: 'Error'),
+                contentPadding: const EdgeInsets.all(20),
+                children: const [Text('Invalid Email or password')],
+              ));
+          break;
+        default:
+          break;
       }
     } catch (error) {
       showDialog(

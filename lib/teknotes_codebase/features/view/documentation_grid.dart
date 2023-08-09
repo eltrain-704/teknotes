@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/drawing/canvas.dart';
-import 'package:teknotes/features/view/documentation_content.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/view/documentation_content.dart';
 
 
 class Documentation extends StatefulWidget {
@@ -14,35 +12,37 @@ class Documentation extends StatefulWidget {
 }
 
 class _DocumentationState extends State<Documentation> {
-  bool _visible = false;
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              GestureDetector(
-                onTap: (){
-                  Navigator.pop(context);
-                },
-                child: Material(
-                  color: AppColor.secondaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(2.r),
-                  ),
-                  child: Container(
-                    padding:  EdgeInsets.all(3.r),
-                    child:  Icon(
-                      Icons.arrow_back_outlined,
-                      color: Colors.white,
-                      size: 20.sp,
-                    ),
-                  ),
-                ),
-              ),
+              //Uncomment code below according to design
+
+              // GestureDetector(
+              //   onTap: (){
+              //     Navigator.pop(context);
+              //   },
+              //   child: Material(
+              //     color: AppColor.secondaryColor,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(2.r),
+              //     ),
+              //     child: Container(
+              //       padding:  EdgeInsets.all(3.r),
+              //       child:  Icon(
+              //         Icons.arrow_back_outlined,
+              //         color: Colors.white,
+              //         size: 20.sp,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               const Spacer(),
               PrimaryText(
                 text: 'Documents Name',
@@ -52,11 +52,7 @@ class _DocumentationState extends State<Documentation> {
               ),
               const Spacer(flex: 3),
               GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _visible = !_visible;
-                  });
-                },
+                onTap: () { },
                 child: SizedBox(
                   height: 28.h,
                   width: 35.w,
@@ -92,22 +88,7 @@ class _DocumentationState extends State<Documentation> {
               ),
             ],
           ),
-         Expanded(
-           child: Visibility(
-    visible: _visible,
-    child: _visible ? DrawingRoomScreen() : TextFormField(
-               keyboardType: TextInputType.multiline,
-      maxLines: null,
-      cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
-                    hintText: 'Start here...',
-                    hintStyle: GoogleFonts.poppins(color: Colors.black, fontSize: 15.sp, fontWeight: FontWeight.w400),
-                  border: InputBorder.none
-                ),
-             ),
-           ),
-         ),
+
         ],
       ),
       floatingActionButton: FloatingActionButton(

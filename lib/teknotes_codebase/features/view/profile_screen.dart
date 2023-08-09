@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:teknotes/common/components.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/auth/sign_in.dart';
-import 'package:teknotes/features/view/e_signing_view.dart';
+import 'package:teknotes/teknotes_codebase/common/components.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/auth/sign_in.dart';
+import 'package:teknotes/teknotes_codebase/features/view/e_signing_view.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Row(
             children: [
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Material(
@@ -43,8 +43,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     borderRadius: BorderRadius.circular(2.r),
                   ),
                   child: Container(
-                    padding:  EdgeInsets.all(3.r),
-                    child:  Icon(
+                    padding: EdgeInsets.all(3.r),
+                    child: Icon(
                       Icons.arrow_back_outlined,
                       color: Colors.white,
                       size: 20.sp,
@@ -52,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 width: 100.w,
               ),
               PrimaryText(
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               )
             ],
           ),
-           SizedBox(
+          SizedBox(
             height: 40.h,
           ),
           Row(
@@ -74,28 +74,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                child:
-                    Image.asset('assets/images/user.png', fit: BoxFit.fill),
+                child: Image.asset('assets/images/user.png', fit: BoxFit.fill),
               ),
-               SizedBox(
+              SizedBox(
                 width: 12.w,
               ),
-                Wrap(
-                  direction: Axis.vertical,
-                  children: [
-                    PrimaryText(
-                        text: userName,
-                        size: 24.sp,
-                        fontWeight: FontWeight.w400),
-                    PrimaryText(
-                        text: '@$user',
-                        size: 18,
-                        fontWeight: FontWeight.w400),
-                  ],
-                ),
+              Wrap(
+                direction: Axis.vertical,
+                children: [
+                  PrimaryText(
+                      text: userName, size: 24.sp, fontWeight: FontWeight.w400),
+                  PrimaryText(
+                      text: '@$user', size: 18, fontWeight: FontWeight.w400),
+                ],
+              ),
             ],
           ),
-           SizedBox(
+          SizedBox(
             height: 30.h,
           ),
           PrimaryText(
@@ -103,22 +98,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
             size: 18.sp,
             fontWeight: FontWeight.w400,
           ),
-           SizedBox(
-            height: 15.h,
-          ),
-          AppTile(titleText: 'Personal Name', subText: userName,),
-           SizedBox(
-            height: 15.h,
-          ),
-          AppTile(titleText: 'Username', subText: '@$user',),
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Business Name', subText: mail,),
+          AppTile(
+            titleText: 'Personal Name',
+            subText: userName,
+          ),
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Set Signature', subText: mail, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
+          AppTile(
+            titleText: 'Username',
+            subText: '@$user',
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          AppTile(
+            titleText: 'Business Name',
+            subText: mail,
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          AppTile(
+            titleText: 'Set Signature',
+            subText: mail,
+            trailing: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          ),
           SizedBox(
             height: 40.h,
           ),
@@ -138,15 +147,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Business Industry', subText: industry, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
+          AppTile(
+            titleText: 'Business Industry',
+            subText: industry,
+            trailing: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          ),
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Location', subText: location, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
+          AppTile(
+            titleText: 'Location',
+            subText: location,
+            trailing: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          ),
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Number of Employees', subText: employees, trailing:IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),),
+          AppTile(
+            titleText: 'Number of Employees',
+            subText: employees,
+            trailing: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          ),
           SizedBox(
             height: 40.h,
           ),
@@ -185,8 +209,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: ListTile(
               leading: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const SigningView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SigningView()));
                   },
                   child: PrimaryText(
                     text: 'Signature',
@@ -210,7 +236,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     final SharedPreferences prefs = await _prefs;
                     prefs.clear();
 
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SignIn() ));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignIn()));
                   },
                   child: PrimaryText(
                     text: 'Log out',
@@ -223,8 +252,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           SizedBox(
             height: 15.h,
           ),
-          AppTile(titleText: 'Language', subText: language, trailing: IconButton(
-              onPressed: () {}, icon: const Icon(Icons.menu_rounded)),)
+          AppTile(
+            titleText: 'Language',
+            subText: language,
+            trailing: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          )
         ],
       ),
     );

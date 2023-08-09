@@ -168,11 +168,11 @@ class _AppTextFieldState extends State<AppTextField> {
         suffixIcon: widget.sufixIcon,
         contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide( width: 1.0),
+          borderSide:  BorderSide( width: 1.0.w),
           borderRadius: BorderRadius.circular(8.r),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide( width: 1.0),
+          borderSide:  BorderSide( width: 1.0.w),
           borderRadius: BorderRadius.circular(8.r),
         ),
       ),
@@ -195,7 +195,7 @@ class AppScaffold extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding:  EdgeInsets.only(
-              top: 137.h - 44.h,
+              top: 93.h,
               left: 24.w,
               right: 24.w,
             ),

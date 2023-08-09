@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/onboarding/onboarding_screen.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/onboarding/onboarding_screen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -28,14 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(gradient: AppColor.colorgradient),
-      child: Center(
-        child: Image.asset(
-          'assets/images/teknotes_logo.png',
-          fit: BoxFit.cover,
-        ),
+      child: Image.asset(
+        'assets/images/teknotes_logo.png',
+        fit: BoxFit.cover,
       ),
     );
   }

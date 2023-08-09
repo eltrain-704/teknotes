@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teknotes/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
 
 class VitalForm extends StatefulWidget {
   const VitalForm({Key? key}) : super(key: key);
@@ -16,12 +16,36 @@ class _VitalFormState extends State<VitalForm> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: SecondaryText(
-              text: 'Vitals Form',
-              size: 30.sp,
-              fontWeight: FontWeight.w500,
-            ),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Material(
+                  color: AppColor.secondaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.r),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(3),
+                    child: Icon(
+                      Icons.arrow_back_outlined,
+                      color: Colors.white,
+                      size: 20.sp,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 100.w,
+              ),
+              SecondaryText(
+                text: 'Vitals Form',
+                size: 30.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ],
           ),
           SizedBox(
             height: 30.h,

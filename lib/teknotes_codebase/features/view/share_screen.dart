@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teknotes/common/components.dart';
-import 'package:teknotes/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/common/components.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+
 
 
 class Share extends StatefulWidget {

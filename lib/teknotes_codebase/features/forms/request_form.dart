@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:teknotes/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
 
 class RequestForm extends StatefulWidget {
   const RequestForm({Key? key}) : super(key: key);
@@ -17,24 +17,38 @@ class _RequestFormState extends State<RequestForm> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Material(
-              color: AppColor.secondaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(2.r),
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(3),
-                child:  Icon(
-                  Icons.arrow_back_outlined,
-                  color: Colors.white,
-                  size: 20.sp,
+          //Remove Row widget
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Material(
+                  color: AppColor.secondaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.r),
+                  ),
+                  child: Container(
+                    padding:  EdgeInsets.all(3.r),
+                    child:  Icon(
+                      Icons.arrow_back_outlined,
+                      color: Colors.white,
+                      size: 20.sp,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              SizedBox(
+                width: 10.w,
+              ),
+              PrimaryText(
+                text: 'Send Your Issues To US',
+                size: 30.sp,
+                color: AppColor.secondaryColor,
+                fontWeight: FontWeight.w500,
+              )
+            ],
           ),
           SizedBox(
             height: 20.h,
@@ -98,7 +112,9 @@ class _RequestFormState extends State<RequestForm> {
                 onTap: () {},
                 backgroundColor: AppColor.secondaryColor,
                 child: PrimaryText(
-                  text: 'Save',
+                  text: 'Send',
+                  //Change text to Save
+                  // text: 'Save',
                   size: 16.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.white,

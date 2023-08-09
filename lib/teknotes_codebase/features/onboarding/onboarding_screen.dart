@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/auth/create_account.dart';
-import 'package:teknotes/features/auth/sign_in.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/auth/create_account.dart';
+import 'package:teknotes/teknotes_codebase/features/auth/sign_in.dart';
+
 
 
 class OnboardingScreen extends StatefulWidget {
@@ -162,8 +163,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-
-
-
-
-

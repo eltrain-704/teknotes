@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:teknotes/common/components.dart';
-import 'package:teknotes/common/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:teknotes/teknotes_codebase/common/components.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
 
 class SigningView extends StatefulWidget {
   const SigningView({Key? key}) : super(key: key);
@@ -63,19 +63,9 @@ class _SigningViewState extends State<SigningView> {
                         borderRadius: BorderRadius.circular(10.r)),
                     child: Stack(
                       children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.topRight,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: SizedBox(
-                              height: 25.h,
-                              width: 7.w,
-                              child: Image.asset(
-                                'assets/images/menu.png',
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
+                          child: MenuBox(),
                         ),
                         Align(
                           alignment: Alignment.center,
@@ -115,19 +105,9 @@ class _SigningViewState extends State<SigningView> {
                         borderRadius: BorderRadius.circular(10.r)),
                     child: Stack(
                       children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.topRight,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: SizedBox(
-                              height: 25.h,
-                              width: 7.w,
-                              child: Image.asset(
-                                'assets/images/menu.png',
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
+                          child: MenuBox(),
                         ),
                         Align(
                           alignment: Alignment.center,
@@ -168,3 +148,7 @@ class _SigningViewState extends State<SigningView> {
         ));
   }
 }
+
+
+
+

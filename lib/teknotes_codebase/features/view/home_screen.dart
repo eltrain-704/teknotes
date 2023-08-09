@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teknotes/common/components.dart';
-import 'package:teknotes/common/constants.dart';
-import 'package:teknotes/features/forms/form.dart';
-import 'package:teknotes/features/view/profile_screen.dart';
+import 'package:teknotes/teknotes_codebase/common/components.dart';
+import 'package:teknotes/teknotes_codebase/common/constants.dart';
+import 'package:teknotes/teknotes_codebase/features/forms/form.dart';
+import 'package:teknotes/teknotes_codebase/features/forms/request_form.dart';
+import 'package:teknotes/teknotes_codebase/features/forms/vitals_form.dart';
+import 'package:teknotes/teknotes_codebase/features/view/documentation_content.dart';
+import 'package:teknotes/teknotes_codebase/features/view/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -50,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   )),
               const Spacer(),
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const RequestForm()));
+                },
                 style: FilledButton.styleFrom(
                   fixedSize: Size(108.w, 40.h),
                     backgroundColor: const Color(0xffF2E8EA),
@@ -81,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
            SizedBox(height: 40.h,),
           HomeBox(title: 'Templates',
               imgpath: 'assets/images/image-2.png',
-              buttonCall: (){}
+              buttonCall: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const VitalForm())),
           ),
            SizedBox(height: 30.h,),
           HomeBox(title: 'Create Form',
@@ -92,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
            SizedBox(height: 30.h,),
           HomeBox(title: 'Create Document',
               imgpath:'assets/images/image-5.png',
-              buttonCall: (){}
+              buttonCall: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const Documentation2())),
           ),
         ],
       ),
